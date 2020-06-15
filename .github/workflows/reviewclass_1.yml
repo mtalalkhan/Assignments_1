@@ -1,0 +1,24 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Installing Node
+      uses: actions/setup-node@v2-beta
+      with: 
+        node-version: 12
+     
+     - name: installing surge
+       run: npm install --global surge
+       
+     - name: deploying website
+       run: surge ./ reviwclass_1.surge.sh --token ${{ secrets.SURGE_TOKEN }}
