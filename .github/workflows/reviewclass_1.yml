@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: reviewclass_1.yaml
 
 on:
   push:
